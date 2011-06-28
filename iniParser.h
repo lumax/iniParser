@@ -15,5 +15,29 @@ Bastian Ruppert
  */
 int iniParser_getParam(char * file,char * param,char * target,int targetLen);
 
+
+struct t_iniParserParams{
+  int valid;
+  const char * key;
+  char value[64];
+};
+
+/*! \brief parse init File for param
+ *
+ * @file: iniFile
+ * @parameter: List of parameter searching for, the last element key must be 0.
+ *
+ * static struct t_iniParserParams params[] = {
+ *  [0] = {
+ *   .key = "MyAmazingKey",
+ *   .value="Amazing"
+ *  },
+ *  [1] = {
+ *   .key = 0,
+ *   },
+ *  };
+ */
+int iniParser_getParamList(char * file,struct t_iniParserParams * parameter);
+
 #endif /* __iniParser_h__ */
 
